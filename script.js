@@ -7,22 +7,29 @@ const computerHand = [
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     let result = computerHand[randomNumber];
-    console.log(result)
+    return result;
 }
 
-getComputerChoice();
+
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
+    const playerChoiceLower = playerSelection.toLowerCase();
+    const computerChoiceLower = computerSelection.toLowerCase();
+
+    if (playerChoiceLower == computerChoiceLower) {
         return 'draw';
     } else if (
-        (playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper') ||
-        (playerSelection === 'paper' && computerSelection === 'rock')
+        (playerChoiceLower == 'rock' && computerChoiceLower == 'scissors') ||
+        (playerChoiceLower == 'scissors' && computerChoiceLower == 'paper') ||
+        (playerChoiceLower == 'paper' && computerChoiceLower == 'rock')
     ) {
-        return 'win';
+        return 'You win!';
     } else {
-        return 'lose';
+        return 'You lose!';
     }
 }
 
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(computerSelection)
+console.log(playRound(playerSelection, computerSelection));

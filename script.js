@@ -37,6 +37,10 @@ function game() {
         // Validate user input
         do {
             playerSelection = prompt("Enter your choice: Rock, Paper, or Scissors").toLowerCase();
+            
+            if (!['rock', 'paper', 'scissors'].includes(playerSelection)) {
+                console.log('Invalid choice. Please enter "rock", "paper", or "scissors".');
+            }
         } while (!['rock', 'paper', 'scissors'].includes(playerSelection));
 
         const computerSelection = getComputerChoice();

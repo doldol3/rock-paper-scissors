@@ -32,7 +32,13 @@ function game() {
     let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Enter your choice: Rock, Paper, or Scissors");
+        let playerSelection;
+
+        // Validate user input
+        do {
+            playerSelection = prompt("Enter your choice: Rock, Paper, or Scissors").toLowerCase();
+        } while (!['rock', 'paper', 'scissors'].includes(playerSelection));
+
         const computerSelection = getComputerChoice();
 
         const result = playRound(playerSelection, computerSelection);
@@ -56,13 +62,8 @@ function game() {
     } else {
         console.log('It\'s a tie! No clear winner.');
     }
-
 }
 
 game();
 
-/*const playerSelection = "scissors";
-const computerSelection = getComputerChoice();
-console.log(computerSelection)
-console.log(playRound(playerSelection, computerSelection));
-*/
+game();
